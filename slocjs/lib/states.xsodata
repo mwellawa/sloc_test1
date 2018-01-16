@@ -1,0 +1,3 @@
+service {
+	"sloc.slocdb::slocf.State" as "state";
+}

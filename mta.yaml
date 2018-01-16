@@ -1,0 +1,29 @@
+ID: sloc
+_schema-version: '2.0'
+description: Store Locator App
+version: 0.0.1
+
+modules:
+ - name: slocdb
+   type: hdb
+   path: slocdb
+   requires:
+    - name: hdi_slocdb
+
+
+ - name: slocjs
+   type: nodejs
+   path: slocjs
+   requires:
+    - name: hdi_slocdb   
+    - name: slocdb   
+   provides:
+    - name: slocjs_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: hdi_slocdb
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
